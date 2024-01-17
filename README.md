@@ -27,3 +27,8 @@ Detailed user information is obtained from ReqRes API.
 [Req Res API - User Details](https://reqres.in/api/users/2)
 
 [Req Res API - User Pagination](https://reqres.in/api/users?page=2)
+
+
+## Preview
+![App Screenshot](https://github.com/Alireza-WebDeveloper/CRUD_Task/public/Preview1.JPG)
+ 
