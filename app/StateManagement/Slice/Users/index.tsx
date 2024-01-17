@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import {
   asyncCreateUser,
   asyncDeleteUser,
@@ -48,10 +49,12 @@ const UsersSlice = createSlice({
         state.loading = false;
         state.data.data = [...state.data.data, action.payload];
         state.error = '';
+        toast.success('Create user successfully');
       }
     );
     builder.addCase(asyncCreateUser.rejected, (state, action: any) => {
       state.loading = false;
+      toast.error('Failed To Get Users');
       state.error = action.payload;
     });
     // Delete
@@ -69,11 +72,13 @@ const UsersSlice = createSlice({
         );
         state.data.data = newUsers;
         state.error = '';
+        toast.success('Delete user successfully');
       }
     );
     builder.addCase(asyncDeleteUser.rejected, (state, action: any) => {
       state.loading = false;
       state.error = action.payload;
+      toast.error('Failed To Delete User');
     });
     // Edit
     builder.addCase(asyncEditUser.pending, (state) => {
@@ -92,14 +97,14 @@ const UsersSlice = createSlice({
           }
           return user;
         });
-
-        // حالا می‌توانید updatedData را به state.data.data اختصاص دهید
         state.data.data = updatedData;
+        toast.success('Edit user successfully');
       }
     );
     builder.addCase(asyncEditUser.rejected, (state, action: any) => {
       state.loading = false;
       state.error = action.payload;
+      toast.error('Failed To Edit User');
     });
   },
 });

@@ -3,6 +3,7 @@ import './globals.css';
 import ReduxProvider from './StateManagement/Provider';
 import { Roboto_Slab } from 'next/font/google';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Zoom } from 'react-toastify';
 import Header from './Components/Header';
 const robotoSlab = Roboto_Slab({
