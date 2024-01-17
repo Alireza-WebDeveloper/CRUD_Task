@@ -2,11 +2,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import BaseApi from '../../Base';
 
 // Fetch Function
-const asyncGetUsers = createAsyncThunk<any, void, { rejectValue: string }>(
+const asyncGetUsers = createAsyncThunk(
   'asyncGet/Users',
-  async (_, ThunkControl) => {
+  async (page: string, ThunkControl) => {
     try {
-      const response = await BaseApi.get<any[]>('/users');
+      const response = await BaseApi.get<any[]>(`/users?page=${page}`);
       return response.data;
     } catch (error: any) {
       return ThunkControl.rejectWithValue(error.message);

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import './globals.css';
 import ReduxProvider from './StateManagement/Provider';
 import { Roboto_Slab } from 'next/font/google';

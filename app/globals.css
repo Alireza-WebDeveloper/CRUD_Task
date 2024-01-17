@@ -7,3 +7,24 @@
     text-decoration: none;
   }
 }
+
+.pagination {
+  @apply flex justify-center py-4;
+}
+
+.page-item {
+  @apply mx-1;
+}
+
+.page-link {
+  @apply px-4 py-2 border border-solid border-purple-400 bg-white text-purple-600 no-underline rounded inline-block transition duration-300 ease-in-out;
+
+  &:hover,
+  &:focus {
+    @apply bg-gray-200;
+  }
+}
+
+.active {
+  @apply bg-purple-600 text-white border-2 border-solid   rounded  border-purple-950;
+}
