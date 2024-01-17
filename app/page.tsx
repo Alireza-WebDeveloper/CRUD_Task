@@ -101,7 +101,7 @@ const HomePage = () => {
             setSelectUserEdit={setSelectUserEdit}
           />
           {/* Pagination */}
-          <section className="flex justify-around items-center">
+          <section className="flex flex-wrap md:gap-0 gap-3 justify-around items-center">
             <Pagination
               query="page"
               initialPage={queryPage}

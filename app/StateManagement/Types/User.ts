@@ -25,3 +25,9 @@ export interface UserState {
   loading: boolean;
   error: string;
 }
+
+export interface UserDetailState {
+  data: UserData;
+  loading: boolean;
+  error: string;
+}
