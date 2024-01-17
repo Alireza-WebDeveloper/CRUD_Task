@@ -30,5 +30,8 @@ Detailed user information is obtained from ReqRes API.
 
 
 ## Preview
-![App Screenshot](https://github.com/Alireza-WebDeveloper/CRUD_Task/public/Preview1.JPG)
+![App Screenshot](https://github.com/Alireza-WebDeveloper/CRUD_Task/blob/main/public/Preview1.JPG)
+
+
+
  
