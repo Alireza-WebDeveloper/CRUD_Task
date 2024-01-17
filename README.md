@@ -24,6 +24,6 @@ Detailed user information is obtained from ReqRes API.
 # APIs Used
 [Req Res API - User List](https://reqres.in/api/users)
 
-[Req Res API - User Details](https://reqres.in/api/users/id)
+[Req Res API - User Details](https://reqres.in/api/users/2)
 
-[Req Res API - User Pagination](https://reqres.in/api/users?page=...)
+[Req Res API - User Pagination](https://reqres.in/api/users?page=2)
