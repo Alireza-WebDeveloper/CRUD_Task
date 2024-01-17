@@ -19,12 +19,17 @@ import UserCreateForm, {
 import UserDeleteForm from './Components/Form/UserDeleteForm';
 import UserEditForm from './Components/Form/UserEditForm';
 import Loading from './Components/Ui/Loading';
+import Error from './Components/Ui/Error';
 const HomePage = () => {
   // State
   const dispatch = useAppDispatch();
   const searchParams = useSearchParams();
   const queryPage = searchParams.get('page') || String(1);
-  const { data, loading: isLoadUsers } = useAppSelector((store) => store.users);
+  const {
+    data,
+    loading: isLoadUsers,
+    error: errorGetUsers,
+  } = useAppSelector((store) => store.users);
   const [selectUserDelete, setSelectUserDelete] = useState(null);
   const [selectUserEdit, setSelectUserEdit]: any = useState(null);
 
@@ -72,10 +77,19 @@ const HomePage = () => {
     setSelectUserEdit(null);
   };
 
+  const handleTryAgatinGetUsers = async () => {
+    dispatch(asyncGetUsers(queryPage));
+  };
+
   return (
     <>
       {isLoadUsers ? (
         <Loading />
+      ) : errorGetUsers ? (
+        <Error
+          message="Something went wrong, please search again"
+          handleAction={handleTryAgatinGetUsers}
+        />
       ) : data && !isLoadUsers ? (
         <section className="grid grid-cols-1 m-auto container p-2">
           {/* User Table */}
