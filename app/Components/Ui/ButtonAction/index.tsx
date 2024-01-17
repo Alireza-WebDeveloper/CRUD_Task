@@ -1,8 +1,9 @@
 import React from 'react';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+interface ButtonActionProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
-const Button: React.FC<ButtonProps> = (props) => {
+const ButtonAction: React.FC<ButtonActionProps> = (props) => {
   const { className, children, ...restProps } = props;
   return (
     <button
@@ -18,4 +19,4 @@ const Button: React.FC<ButtonProps> = (props) => {
   );
 };
 
-export default Button;
+export default ButtonAction;

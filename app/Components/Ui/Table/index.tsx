@@ -3,11 +3,22 @@ import { loadImage } from '@/app/Types/Image.type';
 import Image from 'next/image';
 import ButtonAction from '../ButtonAction';
 import Link from 'next/link';
+
 interface TableProps {
   data: UserData[];
+  handleOpenEditModal(): void;
+  handleOpenDeleteModal(): void;
+  setSelectUserEdit: any;
+  setSelectUserDelete: any;
 }
 
-const Table: React.FC<TableProps> = ({ data }) => {
+const Table: React.FC<TableProps> = ({
+  data,
+  handleOpenDeleteModal,
+  handleOpenEditModal,
+  setSelectUserDelete,
+  setSelectUserEdit,
+}) => {
   const renderTableHeader = () => {
     return (
       <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -69,10 +80,22 @@ const Table: React.FC<TableProps> = ({ data }) => {
                 </td>
                 <td className="px-6 py-4">
                   <section className="flex items-center gap-3">
-                    <ButtonAction className="bg-red-500 hover:bg-red-700">
+                    <ButtonAction
+                      onClick={() => {
+                        setSelectUserDelete(user.id);
+                        handleOpenDeleteModal();
+                      }}
+                      className="bg-red-500 hover:bg-red-700"
+                    >
                       delete
                     </ButtonAction>
-                    <ButtonAction className="bg-orange-500 hover:bg-orange-700">
+                    <ButtonAction
+                      onClick={() => {
+                        setSelectUserEdit(user);
+                        handleOpenEditModal();
+                      }}
+                      className="bg-orange-500 hover:bg-orange-700"
+                    >
                       edit
                     </ButtonAction>
                     <Link href={`/user/${user.id}`}>
