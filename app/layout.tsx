@@ -2,8 +2,14 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import ReduxProvider from './StateManagement/Provider';
-
-const inter = Inter({ subsets: ['latin'] });
+import { Roboto_Slab } from 'next/font/google';
+import { ToastContainer } from 'react-toastify';
+import { Zoom } from 'react-toastify';
+import Header from './Components/Header';
+const robotoSlab = Roboto_Slab({
+  subsets: ['latin'],
+  weight: ['400'],
+});
 
 export const metadata: Metadata = {
   title: 'Next App',
@@ -17,8 +23,28 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <ReduxProvider>{children}</ReduxProvider>
+      <body
+        className={`${robotoSlab.className}  bg-gray-100 text-black  
+        dark:bg-black dark:text-white capitalize`}
+      >
+        <ReduxProvider>
+          <Header />
+          <main className="mt-[4.52rem]">{children}</main>
+          <ToastContainer
+            draggablePercent={60}
+            transition={Zoom}
+            position="top-right"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
+        </ReduxProvider>
       </body>
     </html>
   );
