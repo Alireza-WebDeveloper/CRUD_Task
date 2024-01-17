@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { asyncGetUsers } from './Action';
-const initialState: any = {
-  data: [],
+import { UserState } from '../../Types/User';
+const initialState: UserState = {
+  data: {},
   loading: false,
   error: '',
-};
+} as UserState;
 
 const UsersSlice = createSlice({
   name: 'users',
@@ -14,7 +15,7 @@ const UsersSlice = createSlice({
     // Pending
     builder.addCase(asyncGetUsers.pending, (state) => {
       state.loading = true;
-      state.data = [];
+
       state.error = '';
     });
     // Fulfilled
@@ -29,7 +30,6 @@ const UsersSlice = createSlice({
     // Rejected
     builder.addCase(asyncGetUsers.rejected, (state, action: any) => {
       state.loading = false;
-      state.data = [];
       state.error = action.payload;
     });
   },
